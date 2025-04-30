@@ -3,8 +3,9 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import csv
 import sqlite3
-
+import time
 #To store the data extracted
+start = time.time()
 data = []
 
 #Total 10 pages 
@@ -49,6 +50,8 @@ for i in range(1,11):
 
 #storing in csv file
 df = pd.DataFrame(data)
+end = time.time()
+print(f"time taken {(end-start):.3f}")
 df.to_csv(f'Quotes_from_toscrape.csv', index = False)
 
 '''
